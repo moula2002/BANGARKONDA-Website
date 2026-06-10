@@ -1,69 +1,74 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-
-// Custom chevron-style A component to match the brand typography
-const ChevronA = ({ className }) => (
-  <svg 
-    viewBox="0 0 100 100" 
-    className={className} 
-    fill="none" 
-    stroke="currentColor" 
-    strokeWidth="16" 
-    strokeLinecap="square" 
-    strokeLinejoin="miter"
-    style={{ display: 'inline-block', verticalAlign: 'middle' }}
-  >
-    <path d="M12 95 L50 12 L88 95" />
-    <path d="M30 60 L50 45 L70 60" />
-  </svg>
-);
 
 export default function Navbar({ setEnquiryOpen, scrollToSection }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <>
       {/* ─── NAVBAR / HEADER ─────────────────────────────────────────────────── */}
-      <header className="sticky top-0 z-40 w-full bg-brand-navy/85 backdrop-blur-lg border-b border-[#E8621A]/20 shadow-[0_4px_30px_rgba(232,98,26,0.06)] transition-all duration-300">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-28 flex items-center justify-between">
+      <header className={`sticky top-0 z-40 w-full transition-all duration-500 ${
+        scrolled 
+          ? 'bg-brand-navy/95 border-b border-[#E8621A]/30 shadow-[0_10px_30px_rgba(7,15,33,0.8)] h-20' 
+          : 'bg-brand-navy/80 border-b border-[#E8621A]/10 shadow-[0_4px_30px_rgba(232,98,26,0.06)] h-28'
+      } backdrop-blur-md`}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
           <div className="flex items-center gap-4 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            <img 
-              src="images/logo.png" 
-              alt="Bangarkonda Projects Logo" 
-              className="h-24 w-auto object-contain transition-transform duration-300 hover:scale-105"
+            <img
+              src="images/logo.png"
+              alt="Bangarkonda Projects Logo"
+              className={`w-auto object-contain transition-all duration-500 hover:scale-105 ${
+                scrolled ? 'h-[74px]' : 'h-[105px]'
+              }`}
             />
-            <div className="flex flex-col justify-center">
-              <span className="text-sm sm:text-[15px] lg:text-[17px] font-black tracking-widest text-[#E8621A] leading-none font-sans flex items-center">
-                B<ChevronA className="h-[0.72em] w-auto mx-[0.02em] self-center" />NG<ChevronA className="h-[0.72em] w-auto mx-[0.02em] self-center" />RKOND<ChevronA className="h-[0.72em] w-auto mx-[0.02em] self-center" />
-              </span>
-              <span className="text-[7.5px] sm:text-[8.5px] lg:text-[9px] tracking-[0.25em] text-white font-extrabold uppercase mt-1.5 leading-none font-sans">
-                PROJECTS PVT. LTD.
-              </span>
-              <span className="text-[5.2px] sm:text-[6px] lg:text-[6.2px] tracking-[0.1em] text-slate-400 font-bold uppercase mt-1 leading-none font-sans">
-                CONSTRUCTION • DEVELOPMENT • TRADING
-              </span>
-            </div>
           </div>
 
-          <nav className="hidden lg:flex items-center gap-8 text-xs font-bold uppercase tracking-wider">
-            <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="nav-link text-slate-300 hover:text-[#E8621A] transition-colors cursor-pointer">Home</button>
-            <button onClick={() => scrollToSection('about')} className="nav-link text-slate-300 hover:text-[#E8621A] transition-colors cursor-pointer">About Us</button>
-            <button onClick={() => scrollToSection('sectors')} className="nav-link text-slate-300 hover:text-[#E8621A] transition-colors cursor-pointer">Sectors</button>
-            <button onClick={() => scrollToSection('ecosystem')} className="nav-link text-slate-300 hover:text-[#E8621A] transition-colors cursor-pointer">Ecosystem</button>
-            <button onClick={() => scrollToSection('projects')} className="nav-link text-slate-300 hover:text-[#E8621A] transition-colors cursor-pointer">Projects</button>
-            <button onClick={() => scrollToSection('gallery')} className="nav-link text-slate-300 hover:text-[#E8621A] transition-colors cursor-pointer">Gallery</button>
-            <button onClick={() => scrollToSection('investors')} className="nav-link text-slate-300 hover:text-[#E8621A] transition-colors cursor-pointer">Investors</button>
-            <button onClick={() => scrollToSection('contact')} className="nav-link text-slate-355 hover:text-[#E8621A] transition-colors font-extrabold cursor-pointer">Contact Us</button>
+          <nav className="hidden lg:flex items-center gap-4 text-xs font-bold uppercase tracking-wider">
+            {[
+              { label: 'Home', action: () => window.scrollTo({ top: 0, behavior: 'smooth' }) },
+              { label: 'About Us', section: 'about' },
+              { label: 'Sectors', section: 'sectors' },
+              { label: 'Ecosystem', section: 'ecosystem' },
+              { label: 'Projects', section: 'projects' },
+              { label: 'Gallery', section: 'gallery' },
+              { label: 'Investors', section: 'investors' },
+              { label: 'Contact Us', section: 'contact' },
+            ].map((link, idx) => (
+              <button
+                key={idx}
+                onClick={link.action ? link.action : () => scrollToSection(link.section)}
+                className="relative px-3.5 py-2 text-slate-300 hover:text-white hover:bg-white/[0.03] active:bg-white/[0.06] border border-transparent hover:border-[#E8621A]/20 rounded-xl transition-all duration-300 cursor-pointer font-extrabold text-[11px] tracking-widest group"
+              >
+                {link.label}
+                {/* Active/Hover dot indicator */}
+                <span className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#E8621A] opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
+              </button>
+            ))}
           </nav>
 
           <div className="flex items-center gap-4">
-            <button 
+            <button
               onClick={() => setEnquiryOpen(true)}
-              className="hidden sm:block btn-orange text-xs px-6 py-3 uppercase tracking-widest font-black transition-all duration-300 hover:shadow-[0_0_20px_rgba(232,98,26,0.4)]"
+              className="relative hidden sm:block overflow-hidden rounded-xl bg-gradient-to-r from-[#E8621A] to-[#ff7d31] text-white text-[11px] font-black uppercase tracking-widest px-6 py-3.5 transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] hover:shadow-[0_0_20px_rgba(232,98,26,0.45)] group cursor-pointer"
             >
-              Enquire Now
+              <span className="relative z-10">Enquire Now</span>
+              {/* Shiny streak overlay */}
+              <span className="absolute top-0 -left-[100%] h-full w-1/2 transform -skew-x-12 bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:left-[125%] transition-all duration-1000 ease-out" />
             </button>
-            
+
             {/* Hamburger Toggle */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -78,92 +83,54 @@ export default function Navbar({ setEnquiryOpen, scrollToSection }) {
 
       {/* Mobile Navigation Drawer */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-30 lg:hidden">
+        <div className="fixed inset-0 z-50 lg:hidden">
           {/* Dark backdrop blur */}
-          <div 
+          <div
             className="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-300"
             onClick={() => setMobileMenuOpen(false)}></div>
 
-          <div className="fixed top-28 right-0 bottom-0 w-full max-w-sm bg-brand-navy/95 backdrop-blur-xl border-l border-[#E8621A]/10 p-6 flex flex-col justify-between shadow-2xl animate-fade-in">
+          <div className="fixed top-0 right-0 bottom-0 w-full max-w-sm bg-brand-navy/98 backdrop-blur-2xl border-l border-[#E8621A]/20 p-6 flex flex-col justify-between shadow-2xl animate-fade-in z-50">
             <div className="space-y-6">
-              <nav className="flex flex-col gap-5 text-sm font-bold uppercase tracking-wider pt-4">
-                <button 
-                  onClick={() => {
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                    setMobileMenuOpen(false);
-                  }} 
-                  className="text-left text-slate-355 hover:text-[#E8621A] transition-colors py-2 border-b border-slate-900/60 font-black cursor-pointer"
+              {/* Drawer Header with Logo and Close button */}
+              <div className="flex items-center justify-between pb-6 border-b border-slate-900/60">
+                <img
+                  src="images/logo.png"
+                  alt="Bangarkonda Projects Logo"
+                  className="h-14 w-auto object-contain"
+                />
+                <button
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="p-2.5 text-slate-450 hover:text-[#E8621A] transition-colors focus:outline-none bg-slate-900/60 border border-slate-800 rounded-xl hover:border-[#E8621A]/30 cursor-pointer"
+                  aria-label="Close Menu"
                 >
-                  Home
+                  <X className="w-5 h-5" />
                 </button>
-                <button 
-                  onClick={() => {
-                    scrollToSection('about');
-                    setMobileMenuOpen(false);
-                  }} 
-                  className="text-left text-slate-355 hover:text-[#E8621A] transition-colors py-2 border-b border-slate-900/60 font-black cursor-pointer"
-                >
-                  About Us
-                </button>
-                <button 
-                  onClick={() => {
-                    scrollToSection('sectors');
-                    setMobileMenuOpen(false);
-                  }} 
-                  className="text-left text-slate-355 hover:text-[#E8621A] transition-colors py-2 border-b border-slate-900/60 font-black cursor-pointer"
-                >
-                  Sectors
-                </button>
-                <button 
-                  onClick={() => {
-                    scrollToSection('ecosystem');
-                    setMobileMenuOpen(false);
-                  }} 
-                  className="text-left text-slate-355 hover:text-[#E8621A] transition-colors py-2 border-b border-slate-900/60 font-black cursor-pointer"
-                >
-                  Ecosystem
-                </button>
-                <button 
-                  onClick={() => {
-                    scrollToSection('projects');
-                    setMobileMenuOpen(false);
-                  }} 
-                  className="text-left text-slate-355 hover:text-[#E8621A] transition-colors py-2 border-b border-slate-900/60 font-black cursor-pointer"
-                >
-                  Projects
-                </button>
-                <button 
-                  onClick={() => {
-                    scrollToSection('gallery');
-                    setMobileMenuOpen(false);
-                  }} 
-                  className="text-left text-slate-355 hover:text-[#E8621A] transition-colors py-2 border-b border-slate-900/60 font-black cursor-pointer"
-                >
-                  Gallery
-                </button>
-                <button 
-                  onClick={() => {
-                    scrollToSection('investors');
-                    setMobileMenuOpen(false);
-                  }} 
-                  className="text-left text-slate-355 hover:text-[#E8621A] transition-colors py-2 border-b border-slate-900/60 font-black cursor-pointer"
-                >
-                  Investors
-                </button>
-                <button 
-                  onClick={() => {
-                    scrollToSection('contact');
-                    setMobileMenuOpen(false);
-                  }} 
-                  className="text-left text-slate-355 hover:text-[#E8621A] transition-colors py-2 font-black cursor-pointer"
-                >
-                  Contact Us
-                </button>
+              </div>
+
+              <nav className="flex flex-col gap-3 text-sm font-bold uppercase tracking-wider">
+                {[
+                  { label: 'Home', action: () => { window.scrollTo({ top: 0, behavior: 'smooth' }); setMobileMenuOpen(false); } },
+                  { label: 'About Us', section: 'about' },
+                  { label: 'Sectors', section: 'sectors' },
+                  { label: 'Ecosystem', section: 'ecosystem' },
+                  { label: 'Projects', section: 'projects' },
+                  { label: 'Gallery', section: 'gallery' },
+                  { label: 'Investors', section: 'investors' },
+                  { label: 'Contact Us', section: 'contact' },
+                ].map((link, idx) => (
+                  <button
+                    key={idx}
+                    onClick={link.action ? link.action : () => { scrollToSection(link.section); setMobileMenuOpen(false); }}
+                    className="text-left text-slate-300 hover:text-[#E8621A] hover:bg-white/[0.02] px-4 py-3 border-b border-slate-900/40 rounded-xl transition-all duration-300 font-extrabold text-[12px] tracking-widest cursor-pointer"
+                  >
+                    {link.label}
+                  </button>
+                ))}
               </nav>
             </div>
 
             <div className="pt-6 border-t border-slate-900 mt-auto">
-              <button 
+              <button
                 onClick={() => {
                   setEnquiryOpen(true);
                   setMobileMenuOpen(false);

@@ -23,13 +23,13 @@ import Footer from '../components/Footer';
 
 // Custom chevron-style A component to match the brand typography
 const ChevronA = ({ className }) => (
-  <svg 
-    viewBox="0 0 100 100" 
-    className={className} 
-    fill="none" 
-    stroke="currentColor" 
-    strokeWidth="16" 
-    strokeLinecap="square" 
+  <svg
+    viewBox="0 0 100 100"
+    className={className}
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="16"
+    strokeLinecap="square"
     strokeLinejoin="miter"
     style={{ display: 'inline-block', verticalAlign: 'middle' }}
   >
@@ -624,8 +624,8 @@ export default function Home() {
                   onMouseLeave={() => setActiveEcosystemNode(null)}
                   onClick={() => setActiveEcosystemNode(activeEcosystemNode === node.id ? null : node.id)}
                   className={`p-5 rounded-2xl border transition-all duration-300 cursor-pointer ${activeEcosystemNode === node.id
-                      ? 'bg-brand-navy border-[#E8621A] shadow-[0_4px_16px_rgba(232,98,26,0.08)]'
-                      : 'bg-brand-navy/40 border-slate-900 hover:border-slate-800'
+                    ? 'bg-brand-navy border-[#E8621A] shadow-[0_4px_16px_rgba(232,98,26,0.08)]'
+                    : 'bg-brand-navy/40 border-slate-900 hover:border-slate-800'
                     }`}
                 >
                   <div className="flex items-center gap-3">
@@ -652,8 +652,8 @@ export default function Home() {
                     <span className="text-[16px] sm:text-[18px] font-black tracking-widest text-[#E8621A] leading-none font-sans flex items-center mb-1">
                       B<ChevronA className="h-[0.72em] w-auto mx-[0.02em] self-center" />NG<ChevronA className="h-[0.72em] w-auto mx-[0.02em] self-center" />RKOND<ChevronA className="h-[0.72em] w-auto mx-[0.02em] self-center" />
                     </span>
-                    <span className="text-[10px] sm:text-[11px] tracking-[0.25em] text-white font-extrabold uppercase mt-1 leading-none font-sans">
-                      PROJECTS PVT. LTD.
+                    <span className="text-[10px] sm:text-[11px] tracking-[0.25em] text-[#d4af37] font-black uppercase mt-1 leading-none font-sans">
+                      PROJECTS
                     </span>
                   </div>
                 </div>
@@ -669,8 +669,8 @@ export default function Home() {
                     <div
                       key={node.id}
                       className={`absolute w-7 h-7 rounded-full flex items-center justify-center border transition-all duration-300 cursor-pointer ${activeEcosystemNode === node.id
-                          ? 'bg-[#E8621A] border-[#E8621A] scale-125 shadow-[0_0_15px_#E8621A]'
-                          : 'bg-brand-navy border-slate-800'
+                        ? 'bg-[#E8621A] border-[#E8621A] scale-125 shadow-[0_0_15px_#E8621A]'
+                        : 'bg-brand-navy border-slate-800'
                         }`}
                       style={{
                         transform: `translate(${x}px, ${y}px)`
@@ -696,8 +696,8 @@ export default function Home() {
                   onMouseLeave={() => setActiveEcosystemNode(null)}
                   onClick={() => setActiveEcosystemNode(activeEcosystemNode === node.id ? null : node.id)}
                   className={`p-5 rounded-2xl border transition-all duration-300 cursor-pointer ${activeEcosystemNode === node.id
-                      ? 'bg-brand-navy border-[#E8621A] shadow-[0_4px_16px_rgba(232,98,26,0.08)]'
-                      : 'bg-brand-navy/40 border-slate-900 hover:border-slate-800'
+                    ? 'bg-brand-navy border-[#E8621A] shadow-[0_4px_16px_rgba(232,98,26,0.08)]'
+                    : 'bg-brand-navy/40 border-slate-900 hover:border-slate-800'
                     }`}
                 >
                   <div className="flex items-center gap-3">
@@ -736,8 +736,8 @@ export default function Home() {
                   key={cat}
                   onClick={() => setProjectFilter(cat)}
                   className={`px-4 py-2 rounded-lg transition-all duration-300 cursor-pointer shrink-0 ${projectFilter === cat
-                      ? 'bg-[#E8621A] text-white'
-                      : 'bg-slate-950 text-slate-400 hover:text-white border border-slate-900'
+                    ? 'bg-[#E8621A] text-white'
+                    : 'bg-slate-950 text-slate-400 hover:text-white border border-slate-900'
                     }`}
                 >
                   {cat.replace('-', ' ')}

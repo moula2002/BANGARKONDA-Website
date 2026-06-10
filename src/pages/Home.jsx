@@ -284,19 +284,22 @@ export default function Home() {
       
       {/* ─── NAVBAR / HEADER ─────────────────────────────────────────────────── */}
       <header className="sticky top-0 z-40 w-full bg-brand-navy/85 backdrop-blur-lg border-b border-[#E8621A]/20 shadow-[0_4px_30px_rgba(232,98,26,0.06)] transition-all duration-300">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-24 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-28 flex items-center justify-between">
           <div className="flex items-center gap-4 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             <img 
               src="images/logo.png" 
               alt="Bangarkonda Projects Logo" 
-              className="h-16 w-auto object-contain transition-transform duration-300 hover:scale-105"
+              className="h-24 w-auto object-contain transition-transform duration-300 hover:scale-105"
             />
-            <div className="flex flex-col">
+            <div className="flex flex-col justify-center">
               <span className="text-lg sm:text-xl font-black tracking-widest text-[#E8621A] leading-none font-sans">
                 BANGARKONDA
               </span>
-              <span className="text-[8px] sm:text-[10px] tracking-[0.25em] text-[#d4af37] font-black uppercase mt-1">
-                PROJECTS PVT LTD
+              <span className="text-[10px] sm:text-[11px] tracking-[0.25em] text-[#d4af37] font-black uppercase mt-1 leading-none">
+                PROJECTS
+              </span>
+              <span className="text-[6.5px] sm:text-[7.5px] tracking-[0.1em] text-slate-400 font-bold uppercase mt-1 leading-none">
+                CONSTRUCTION • DEVELOPMENT • TRADING
               </span>
             </div>
           </div>
@@ -342,7 +345,7 @@ export default function Home() {
 
       
 
-      <div className="fixed top-24 right-0 bottom-0 w-full max-w-sm bg-brand-navy/95 backdrop-blur-xl border-l border-[#E8621A]/10 p-6 flex flex-col justify-between shadow-2xl animate-fade-in">
+      <div className="fixed top-28 right-0 bottom-0 w-full max-w-sm bg-brand-navy/95 backdrop-blur-xl border-l border-[#E8621A]/10 p-6 flex flex-col justify-between shadow-2xl animate-fade-in">
             <div className="space-y-6">
               <nav className="flex flex-col gap-5 text-sm font-bold uppercase tracking-wider pt-4">
                 <button 
@@ -1266,14 +1269,17 @@ export default function Home() {
                 <img 
                   src="images/logo.png" 
                   alt="Bangarkonda Logo" 
-                  className="h-14 w-auto object-contain filter drop-shadow-[0_0_8px_rgba(232,98,26,0.25)] transition-transform duration-300 hover:scale-105"
+                  className="h-20 w-auto object-contain filter drop-shadow-[0_0_8px_rgba(232,98,26,0.25)] transition-transform duration-300 hover:scale-105"
                 />
-                <div className="flex flex-col">
+                <div className="flex flex-col justify-center">
                   <span className="text-lg font-black tracking-widest text-[#E8621A] uppercase leading-none font-sans">
                     BANGARKONDA
                   </span>
-                  <span className="text-[10px] tracking-[0.25em] text-[#d4af37] font-black uppercase mt-1">
-                    PROJECTS PVT LTD
+                  <span className="text-[10px] tracking-[0.25em] text-[#d4af37] font-black uppercase mt-1 leading-none">
+                    PROJECTS
+                  </span>
+                  <span className="text-[6.5px] tracking-[0.1em] text-slate-400 font-bold uppercase mt-1 leading-none">
+                    CONSTRUCTION • DEVELOPMENT • TRADING
                   </span>
                 </div>
               </div>

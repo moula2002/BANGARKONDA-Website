@@ -1,6 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
+// Custom chevron-style A component to match the brand typography
+const ChevronA = ({ className }) => (
+  <svg 
+    viewBox="0 0 100 100" 
+    className={className} 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="16" 
+    strokeLinecap="square" 
+    strokeLinejoin="miter"
+    style={{ display: 'inline-block', verticalAlign: 'middle' }}
+  >
+    <path d="M12 95 L50 12 L88 95" />
+    <path d="M30 62 C38 62 42 48 50 48 C58 48 62 62 70 62" />
+  </svg>
+);
+
 export default function Navbar({ setEnquiryOpen, scrollToSection }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -26,14 +43,37 @@ export default function Navbar({ setEnquiryOpen, scrollToSection }) {
           : 'bg-brand-navy/80 border-b border-[#E8621A]/10 shadow-[0_4px_30px_rgba(232,98,26,0.06)] h-28'
       } backdrop-blur-md`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
-          <div className="flex items-center gap-4 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+          <div className="flex items-center gap-3.5 cursor-pointer select-none" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             <img
               src="images/logo.png"
-              alt="Bangarkonda Projects Logo"
+              alt="Bangarkonda Logo Icon"
               className={`w-auto object-contain transition-all duration-500 hover:scale-105 ${
-                scrolled ? 'h-[74px]' : 'h-[105px]'
+                scrolled ? 'h-14' : 'h-20'
               }`}
             />
+            <div className="flex flex-col justify-center max-w-[170px] sm:max-w-[190px] lg:max-w-[210px]">
+              <span className="text-xs sm:text-[13px] lg:text-[15px] font-black tracking-widest text-[#E8621A] leading-none font-sans flex items-center justify-between w-full">
+                B<ChevronA className="h-[0.72em] w-auto mx-[0.02em] self-center" />NG<ChevronA className="h-[0.72em] w-auto mx-[0.02em] self-center" />RKOND<ChevronA className="h-[0.72em] w-auto mx-[0.02em] self-center" />
+              </span>
+              <div className="flex items-center gap-1.5 w-full mt-1.5 leading-none">
+                <div className="flex flex-col gap-[1.2px] flex-1">
+                  <div className="h-[0.8px] bg-[#ffd700]/50"></div>
+                  <div className="h-[0.8px] bg-[#ffd700]/50"></div>
+                  <div className="h-[0.8px] bg-[#ffd700]/50"></div>
+                </div>
+                <span className="text-[7px] sm:text-[8px] lg:text-[8.5px] tracking-[0.2em] text-[#ffd700] font-black uppercase font-sans shrink-0">
+                  PROJECTS
+                </span>
+                <div className="flex flex-col gap-[1.2px] flex-1">
+                  <div className="h-[0.8px] bg-[#ffd700]/50"></div>
+                  <div className="h-[0.8px] bg-[#ffd700]/50"></div>
+                  <div className="h-[0.8px] bg-[#ffd700]/50"></div>
+                </div>
+              </div>
+              <span className="text-[4.8px] sm:text-[5.5px] lg:text-[6px] tracking-[0.05em] text-slate-350 font-bold uppercase mt-1 leading-none font-sans whitespace-nowrap">
+                CONSTRUCTION, DEVELOPMENT AND TRADING
+              </span>
+            </div>
           </div>
 
           <nav className="hidden lg:flex items-center gap-4 text-xs font-bold uppercase tracking-wider">

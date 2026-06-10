@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&family=Cinzel:wght@400;500;600;700;800;900&family=Cinzel+Decorative:wght@400;700;900&display=swap');
 
 @import "tailwindcss";
 
@@ -12,6 +12,7 @@
   --color-brand-panel: rgba(11, 25, 44, 0.75);
 
   --font-sans: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+  --font-cinzel: 'Cinzel Decorative', 'Cinzel', serif;
 
   --animate-fade-in: fadeIn 0.5s ease-out forwards;
   --animate-pulse-subtle: pulseSubtle 3s infinite ease-in-out;
@@ -24,6 +25,10 @@
     0%, 100% { opacity: 1; transform: scale(1); }
     50% { opacity: 0.8; transform: scale(1.02); }
   }
+}
+
+html {
+  font-size: 17px;
 }
 
 :root {

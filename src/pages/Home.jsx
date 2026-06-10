@@ -338,11 +338,11 @@ export default function Home() {
           {/* Dark backdrop blur */}
           <div 
             className="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-300"
-            onClick={() => setMobileMenuOpen(false)}
-          ></div>
-          
-          {/* Drawer Panel */}
-          <div className="fixed top-24 right-0 bottom-0 w-full max-w-sm bg-brand-navy/95 backdrop-blur-xl border-l border-[#E8621A]/10 p-6 flex flex-col justify-between shadow-2xl animate-fade-in">
+            onClick={() => setMobileMenuOpen(false)}></div>
+
+      
+
+      <div className="fixed top-24 right-0 bottom-0 w-full max-w-sm bg-brand-navy/95 backdrop-blur-xl border-l border-[#E8621A]/10 p-6 flex flex-col justify-between shadow-2xl animate-fade-in">
             <div className="space-y-6">
               <nav className="flex flex-col gap-5 text-sm font-bold uppercase tracking-wider pt-4">
                 <button 
@@ -434,6 +434,8 @@ export default function Home() {
           </div>
         </div>
       )}
+
+      
 
       {/* ─── HERO SECTION ────────────────────────────────────────────────────── */}
       <section className="relative w-full min-h-[90vh] flex items-center justify-center overflow-hidden bg-black">
@@ -1087,7 +1089,7 @@ export default function Home() {
                   <div>
                     <h4 className="text-[10px] font-black text-[#d4af37] uppercase tracking-wider">Corporate Address</h4>
                     <p className="text-xs text-slate-200 mt-1 font-semibold leading-relaxed">
-                      No 19, Prestige Falcon Towers, Brunton Rd,<br />Craig Park Layout, Ashok Nagar,<br />Bengaluru, Karnataka 560025
+                      Prestige Trade Tower,<br />11th Floor, The Executive Centre,<br />High Grounds, Palace Road,<br />Bengaluru – 560001
                     </p>
                   </div>
                 </div>
@@ -1099,7 +1101,7 @@ export default function Home() {
                   <div>
                     <h4 className="text-[10px] font-black text-[#d4af37] uppercase tracking-wider">Call Helpdesk</h4>
                     <p className="text-xs text-slate-200 mt-1 font-bold">
-                      +91 91085 43210
+                      +91 9972437119
                     </p>
                   </div>
                 </div>
@@ -1235,12 +1237,12 @@ export default function Home() {
               allowFullScreen="" 
               loading="lazy" 
               referrerPolicy="no-referrer-when-downgrade"
-              title="Bangarkonda Office Location – Prestige Falcon Towers"
+              title="Bangarkonda Office Location – Prestige Trade Tower"
               className="w-full h-full"
             ></iframe>
-            <div className="absolute top-4 left-4 bg-brand-navy/95 border border-[#E8621A]/30 px-4 py-2.5 rounded-xl backdrop-blur-md pointer-events-none">
+              <div className="absolute top-4 left-4 bg-brand-navy/95 border border-[#E8621A]/30 px-4 py-2.5 rounded-xl backdrop-blur-md pointer-events-none">
               <span className="text-[10px] font-black text-[#d4af37] uppercase tracking-widest block">Corporate Office</span>
-              <span className="text-[11px] text-white font-bold uppercase mt-0.5">Prestige Falcon Towers, Ashok Nagar, Bengaluru</span>
+              <span className="text-[11px] text-white font-bold uppercase mt-0.5">Prestige Trade Tower, Palace Road, Bengaluru</span>
             </div>
           </div>
 
@@ -1396,7 +1398,7 @@ export default function Home() {
                   <div>
                     <span className="text-[9px] text-slate-500 uppercase tracking-widest font-black block">Corporate Office</span>
                     <span className="text-slate-300 text-xs mt-0.5 block leading-relaxed">
-                      No 19, Prestige Falcon Towers, Brunton Rd, Craig Park Layout, Ashok Nagar, Bengaluru, Karnataka 560025
+                      Prestige Trade Tower, 11th Floor, The Executive Centre, High Grounds, Palace Road, Bengaluru – 560001
                     </span>
                   </div>
                 </li>
@@ -1407,9 +1409,9 @@ export default function Home() {
                   </div>
                   <div>
                     <span className="text-[9px] text-slate-500 uppercase tracking-widest font-black block">Call Helpdesk</span>
-                    <a href="tel:+919108543210" className="text-slate-200 text-xs mt-0.5 block font-bold hover:text-[#E8621A] transition-colors">
-                      +91 91085 43210
-                    </a>
+                      <a href="tel:+919972437119" className="text-slate-200 text-xs mt-0.5 block font-bold hover:text-[#E8621A] transition-colors">
+                        +91 9972437119
+                      </a>
                   </div>
                 </li>
 
@@ -1430,12 +1432,24 @@ export default function Home() {
           </div>
 
           {/* Copyright bar */}
-          <div className="border-t border-slate-900 pt-8 mt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-slate-500 font-bold uppercase tracking-wider text-[9px]">
-            <span>© 2026 Bangarkonda Projects Pvt. Ltd. All Rights Reserved.</span>
-            <div className="flex gap-4">
-              <a href="#privacy" className="hover:text-white transition-colors">Privacy Policy</a>
-              <span>|</span>
-              <a href="#terms" className="hover:text-white transition-colors">Terms & Conditions</a>
+          <div className="border-t border-slate-900 pt-8 mt-8">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-slate-500 text-[9px] w-full">
+              <span className="font-bold uppercase tracking-wider">© 2026 Bangarkonda Projects Pvt. Ltd. All Rights Reserved.</span>
+              <div className="flex items-center gap-3 pr-6 md:pr-12">
+                <nav className="flex gap-3 items-center uppercase tracking-wider text-[10px]">
+                  <a href="/privacy.html" className="hover:text-white transition-colors">Privacy Policy</a>
+                  <span className="opacity-50">|</span>
+                  <a href="/terms.html" className="hover:text-white transition-colors">Terms & Conditions</a>
+                </nav>
+                <a
+                  href="https://www.innomatricstech.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-slate-400 font-normal normal-case text-[9px] hover:text-white transition-colors whitespace-nowrap ml-0 md:ml-2"
+                >
+                  Developed by Innomatrics Technologies
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -1589,6 +1603,33 @@ export default function Home() {
           </div>
         </div>
       )}
+
+
+      {/* Floating contact buttons: WhatsApp + Call */}
+      <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
+        <a
+          href="https://wa.me/919972437119?text=Hello%20Bangarkonda%20Projects"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Chat on WhatsApp"
+          title="Chat on WhatsApp"
+          className="bg-[#25D366] hover:bg-[#1DA85B] text-white p-3 rounded-full shadow-lg flex items-center justify-center transition-transform hover:scale-105 ring-2 ring-white/10 border border-white/10"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor" aria-hidden="true">
+            <path d="M20.52 3.48A11.92 11.92 0 0012 0C5.372 0 0 5.373 0 12c0 2.116.555 4.162 1.61 5.958L0 24l6.324-1.64A11.93 11.93 0 0012 24c6.627 0 12-5.373 12-12 0-3.18-1.24-6.186-3.48-8.52zM12 21.8c-1.23 0-2.44-.32-3.5-.92l-.25-.13-3.76.98.99-3.66-.16-.28A9.5 9.5 0 012.5 12 9.5 9.5 0 0112 2.5c2.54 0 4.93.99 6.72 2.78A9.47 9.47 0 0121.5 12c0 5.24-4.26 9.5-9.5 9.5z"/>
+            <path d="M17.15 14.02c-.28-.14-1.65-.81-1.9-.9-.25-.09-.43-.13-.61.14-.19.28-.73.9-.9 1.09-.17.18-.34.2-.63.07-.3-.14-1.28-.47-2.43-1.5-.9-.8-1.5-1.78-1.67-2.07-.17-.28-.02-.43.12-.57.12-.12.27-.33.4-.5.13-.16.17-.28.26-.47.09-.19.05-.36-.03-.5-.08-.12-.6-1.45-.82-1.98-.22-.53-.45-.46-.62-.46-.16 0-.35-.02-.54-.02-.18 0-.47.07-.72.36-.25.29-.95.92-.95 2.24 0 1.32.98 2.6 1.12 2.78.14.18 1.94 2.96 4.7 4.034 2.76 1.07 3.29 1.04 3.55.98.26-.06.84-.33.96-.66.12-.33.12-.61.08-.67-.04-.07-.15-.11-.33-.2z"/>
+          </svg>
+        </a>
+
+        <a
+          href="tel:+919972437119"
+          aria-label="Call us"
+          title="Call"
+          className="bg-[#E8621A] hover:bg-[#d96b21] text-white p-3 rounded-full shadow-lg flex items-center justify-center transition-transform hover:scale-105 ring-2 ring-white/10 border border-white/10"
+        >
+          <Phone className="w-5 h-5" />
+        </a>
+      </div>
 
     </div>
   );

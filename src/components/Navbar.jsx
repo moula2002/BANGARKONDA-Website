@@ -3,13 +3,13 @@ import { Menu, X } from 'lucide-react';
 
 // Custom chevron-style A component to match the brand typography
 const ChevronA = ({ className }) => (
-  <svg 
-    viewBox="0 0 100 100" 
-    className={className} 
-    fill="none" 
-    stroke="currentColor" 
-    strokeWidth="16" 
-    strokeLinecap="square" 
+  <svg
+    viewBox="0 0 100 100"
+    className={className}
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="16"
+    strokeLinecap="square"
     strokeLinejoin="miter"
     style={{ display: 'inline-block', verticalAlign: 'middle' }}
   >
@@ -37,39 +37,21 @@ export default function Navbar({ setEnquiryOpen, scrollToSection }) {
   return (
     <>
       {/* ─── NAVBAR / HEADER ─────────────────────────────────────────────────── */}
-      <header className={`sticky top-0 z-40 w-full transition-all duration-500 ${
-        scrolled 
-          ? 'bg-brand-navy/95 border-b border-[#E8621A]/30 shadow-[0_10px_30px_rgba(7,15,33,0.8)] h-20' 
+      <header className={`sticky top-0 z-40 w-full transition-all duration-500 ${scrolled
+          ? 'bg-brand-navy/95 border-b border-[#E8621A]/30 shadow-[0_10px_30px_rgba(7,15,33,0.8)] h-20'
           : 'bg-brand-navy/80 border-b border-[#E8621A]/10 shadow-[0_4px_30px_rgba(232,98,26,0.06)] h-28'
-      } backdrop-blur-md`}>
+        } backdrop-blur-md`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
-          <div className="flex items-center gap-4 cursor-pointer select-none" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+          <div className="flex items-center gap-3.5 cursor-pointer select-none" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             <img
               src="images/logo.png"
               alt="Bangarkonda Logo Icon"
-              className={`w-auto object-contain transition-all duration-500 hover:scale-105 ${
-                scrolled ? 'h-14' : 'h-20'
-              }`}
+              className={`w-auto object-contain transition-all duration-500 hover:scale-105 ${scrolled ? 'h-14' : 'h-20'
+                }`}
             />
-            
-            {/* Elegant vertical separator */}
-            <div className={`w-[1px] bg-gradient-to-b from-transparent via-slate-650/60 to-transparent transition-all duration-500 ${
-              scrolled ? 'h-10' : 'h-14'
-            }`}></div>
-
-            <div className="flex flex-col justify-center max-w-[170px] sm:max-w-[190px] lg:max-w-[210px] pl-1">
-              <span className="text-xs sm:text-[13px] lg:text-[15px] font-black text-[#E8621A] leading-none font-sans flex items-center gap-[0.14em]">
-                <span>B</span>
-                <ChevronA className="h-[0.72em] w-auto self-center" />
-                <span>N</span>
-                <span>G</span>
-                <ChevronA className="h-[0.72em] w-auto self-center" />
-                <span>R</span>
-                <span>K</span>
-                <span>O</span>
-                <span>N</span>
-                <span>D</span>
-                <ChevronA className="h-[0.72em] w-auto self-center" />
+            <div className="flex flex-col justify-center max-w-[170px] sm:max-w-[190px] lg:max-w-[210px]">
+              <span className="text-xs sm:text-[13px] lg:text-[15px] font-black tracking-widest text-[#E8621A] leading-none font-sans flex items-center justify-between w-full">
+                B<ChevronA className="h-[0.72em] w-auto mx-[0.02em] self-center" />NG<ChevronA className="h-[0.72em] w-auto mx-[0.02em] self-center" />RKOND<ChevronA className="h-[0.72em] w-auto mx-[0.02em] self-center" />
               </span>
               <div className="flex items-center gap-1.5 w-full mt-1.5 leading-none">
                 <div className="flex flex-col gap-[1.2px] flex-1">

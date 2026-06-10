@@ -39,13 +39,13 @@ export default function Footer({ scrollToSection }) {
                 className="h-20 w-auto object-contain filter drop-shadow-[0_0_8px_rgba(232,98,26,0.25)] transition-transform duration-300 hover:scale-105"
               />
               <div className="flex flex-col justify-center">
-                <span className="text-sm sm:text-base font-black tracking-widest text-[#E8621A] uppercase leading-none font-sans flex items-center">
+                <span className="text-xl sm:text-2xl lg:text-3xl font-black tracking-widest text-[#E8621A] uppercase leading-none font-sans flex items-center">
                   B<ChevronA className="h-[0.72em] w-auto mx-[0.02em] self-center" />NG<ChevronA className="h-[0.72em] w-auto mx-[0.02em] self-center" />RKOND<ChevronA className="h-[0.72em] w-auto mx-[0.02em] self-center" />
                 </span>
-                <span className="text-[7.5px] sm:text-[8.5px] tracking-[0.25em] text-white font-extrabold uppercase mt-1.5 leading-none font-sans">
+                <span className="text-[11px] sm:text-[12px] lg:text-[13px] tracking-[0.25em] text-white font-extrabold uppercase mt-1.5 leading-none font-sans">
                   PROJECTS PVT. LTD.
                 </span>
-                <span className="text-[5.2px] sm:text-[6px] tracking-[0.1em] text-slate-400 font-bold uppercase mt-1 leading-none font-sans">
+                <span className="text-[7px] sm:text-[8px] lg:text-[8.5px] tracking-[0.1em] text-slate-400 font-bold uppercase mt-1 leading-none font-sans">
                   CONSTRUCTION • DEVELOPMENT • TRADING
                 </span>
               </div>

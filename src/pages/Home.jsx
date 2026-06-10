@@ -21,6 +21,23 @@ import {
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
+// Custom chevron-style A component to match the brand typography
+const ChevronA = ({ className }) => (
+  <svg 
+    viewBox="0 0 100 100" 
+    className={className} 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="16" 
+    strokeLinecap="square" 
+    strokeLinejoin="miter"
+    style={{ display: 'inline-block', verticalAlign: 'middle' }}
+  >
+    <path d="M12 95 L50 12 L88 95" />
+    <path d="M30 60 L50 45 L70 60" />
+  </svg>
+);
+
 export default function Home() {
   const [activeTab, setActiveTab] = useState('home');
   const [enquiryOpen, setEnquiryOpen] = useState(false);
@@ -632,8 +649,12 @@ export default function Home() {
                       alt="Center Logo"
                       className="w-16 h-16 object-contain mb-2"
                     />
-                    <span className="text-[12px] font-bold text-white tracking-widest uppercase font-cinzel">BANGARKONDA</span>
-                    <span className="text-[8px] font-bold text-[#d4af37] tracking-[0.2em] uppercase mt-0.5">PROJECTS</span>
+                    <span className="text-[16px] sm:text-[18px] font-black tracking-widest text-[#E8621A] leading-none font-sans flex items-center mb-1">
+                      B<ChevronA className="h-[0.72em] w-auto mx-[0.02em] self-center" />NG<ChevronA className="h-[0.72em] w-auto mx-[0.02em] self-center" />RKOND<ChevronA className="h-[0.72em] w-auto mx-[0.02em] self-center" />
+                    </span>
+                    <span className="text-[10px] sm:text-[11px] tracking-[0.25em] text-white font-extrabold uppercase mt-1 leading-none font-sans">
+                      PROJECTS PVT. LTD.
+                    </span>
                   </div>
                 </div>
 

@@ -181,15 +181,6 @@ export default function Home() {
       image: 'images/project-waterpark-slide3.jpg'
     },
     {
-      id: 'p9',
-      title: 'BANGARKONDA RIVER RAPIDS',
-      category: 'amusement-parks',
-      tag: 'WATER PARK',
-      desc: 'Circular Raft High Velocity Slides',
-      location: 'Bangalore',
-      image: 'images/project-waterpark-slide4.jpg'
-    },
-    {
       id: 'p10',
       title: 'BANGARKONDA MANGO GROVES',
       category: 'farmland',

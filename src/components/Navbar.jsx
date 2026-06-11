@@ -30,13 +30,13 @@ export default function Navbar({ setEnquiryOpen, scrollToSection }) {
             <img
               src="images/logo.png"
               alt="Bangarkonda Logo Icon"
-              className={`w-auto object-contain transition-all duration-500 hover:scale-105 ${scrolled ? 'h-16' : 'h-22'
+              className={`w-auto object-contain transition-all duration-500 hover:scale-105 ${scrolled ? 'h-10 sm:h-16' : 'h-14 sm:h-22'
                 }`}
             />
             <img
               src="images/logo-text.png"
               alt="Bangarkonda Projects Logo Text"
-              className={`w-auto object-contain transition-all duration-500 ${scrolled ? 'h-11 sm:h-12 lg:h-13' : 'h-16 sm:h-18 lg:h-20'
+              className={`w-auto object-contain transition-all duration-500 ${scrolled ? 'h-7 sm:h-11 lg:h-13' : 'h-10 sm:h-16 lg:h-20'
                 }`}
               style={{
                 imageRendering: '-webkit-optimize-contrast',

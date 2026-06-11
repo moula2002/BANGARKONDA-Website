@@ -239,7 +239,6 @@ export default function Home() {
     { src: 'images/project-waterpark-slide1.jpg', title: 'Multi-color Water Slide Complex' },
     { src: 'images/project-waterpark-slide2.jpg', title: 'Water Slide Park Pool View' },
     { src: 'images/project-waterpark-slide3.jpg', title: 'High-speed Striped Water Slide' },
-    { src: 'images/project-waterpark-slide4.jpg', title: 'River Rapids Slide Adventure' },
     { src: 'images/project-farmland-mango1.jpg', title: 'Lush Green Mango Orchard Path' },
     { src: 'images/project-farmland-mango2.png', title: 'Organized Rows Mango Orchard' },
     { src: 'images/project-farmland-mango3.png', title: 'Shaded Mature Mango Grove' },
@@ -829,9 +828,6 @@ export default function Home() {
                   <h4 className="text-[9px] font-black text-slate-300 truncate uppercase tracking-wider">
                     {img.title}
                   </h4>
-                  <p className="text-[8px] text-slate-500 font-semibold truncate mt-0.5 font-mono">
-                    {img.src.split('/').pop()}
-                  </p>
                 </div>
               </div>
             ))}
@@ -1259,9 +1255,6 @@ export default function Home() {
               <h3 className="text-sm font-black text-white uppercase tracking-wider">
                 {selectedImage.title}
               </h3>
-              <p className="text-[10px] text-slate-455 font-semibold font-mono">
-                Source Path: {selectedImage.src}
-              </p>
             </div>
           </div>
         </div>

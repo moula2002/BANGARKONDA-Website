@@ -1,22 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
-// Custom chevron-style A component to match the brand typography
-const ChevronA = ({ className }) => (
-  <svg
-    viewBox="0 0 100 100"
-    className={className}
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="16"
-    strokeLinecap="square"
-    strokeLinejoin="miter"
-    style={{ display: 'inline-block', verticalAlign: 'middle' }}
-  >
-    <path d="M12 95 L50 12 L88 95" />
-    <path d="M30 62 C38 62 42 48 50 48 C58 48 62 62 70 62" />
-  </svg>
-);
 
 export default function Navbar({ setEnquiryOpen, scrollToSection }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -38,43 +22,30 @@ export default function Navbar({ setEnquiryOpen, scrollToSection }) {
     <>
       {/* ─── NAVBAR / HEADER ─────────────────────────────────────────────────── */}
       <header className={`sticky top-0 z-40 w-full transition-all duration-500 ${scrolled
-          ? 'bg-brand-navy/95 border-b border-[#E8621A]/30 shadow-[0_10px_30px_rgba(7,15,33,0.8)] h-20'
-          : 'bg-brand-navy/80 border-b border-[#E8621A]/10 shadow-[0_4px_30px_rgba(232,98,26,0.06)] h-28'
+        ? 'bg-brand-navy/95 border-b border-[#E8621A]/30 shadow-[0_10px_30px_rgba(7,15,33,0.8)] h-20'
+        : 'bg-brand-navy/80 border-b border-[#E8621A]/10 shadow-[0_4px_30px_rgba(232,98,26,0.06)] h-28'
         } backdrop-blur-md`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
-          <div className="flex items-center gap-3.5 cursor-pointer select-none" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+          <div className="flex items-center gap-1.5 cursor-pointer select-none" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             <img
               src="images/logo.png"
               alt="Bangarkonda Logo Icon"
-              className={`w-auto object-contain transition-all duration-500 hover:scale-105 ${scrolled ? 'h-14' : 'h-20'
+              className={`w-auto object-contain transition-all duration-500 hover:scale-105 ${scrolled ? 'h-16' : 'h-22'
                 }`}
             />
-            <div className="flex flex-col justify-center max-w-[170px] sm:max-w-[190px] lg:max-w-[210px]">
-              <span className="text-xs sm:text-[13px] lg:text-[15px] font-black tracking-widest text-[#E8621A] leading-none font-sans flex items-center justify-between w-full">
-                B<ChevronA className="h-[0.72em] w-auto mx-[0.02em] self-center" />NG<ChevronA className="h-[0.72em] w-auto mx-[0.02em] self-center" />RKOND<ChevronA className="h-[0.72em] w-auto mx-[0.02em] self-center" />
-              </span>
-              <div className="flex items-center gap-1.5 w-full mt-1.5 leading-none">
-                <div className="flex flex-col gap-[1.2px] flex-1">
-                  <div className="h-[0.8px] bg-[#ffd700]/50"></div>
-                  <div className="h-[0.8px] bg-[#ffd700]/50"></div>
-                  <div className="h-[0.8px] bg-[#ffd700]/50"></div>
-                </div>
-                <span className="text-[7px] sm:text-[8px] lg:text-[8.5px] tracking-[0.2em] text-[#ffd700] font-black uppercase font-sans shrink-0">
-                  PROJECTS
-                </span>
-                <div className="flex flex-col gap-[1.2px] flex-1">
-                  <div className="h-[0.8px] bg-[#ffd700]/50"></div>
-                  <div className="h-[0.8px] bg-[#ffd700]/50"></div>
-                  <div className="h-[0.8px] bg-[#ffd700]/50"></div>
-                </div>
-              </div>
-              <span className="text-[4.8px] sm:text-[5.5px] lg:text-[6px] tracking-[0.05em] text-slate-350 font-bold uppercase mt-1 leading-none font-sans whitespace-nowrap">
-                CONSTRUCTION, DEVELOPMENT AND TRADING
-              </span>
-            </div>
+            <img
+              src="images/logo-text.png"
+              alt="Bangarkonda Projects Logo Text"
+              className={`w-auto object-contain transition-all duration-500 ${scrolled ? 'h-11 sm:h-12 lg:h-13' : 'h-16 sm:h-18 lg:h-20'
+                }`}
+              style={{
+                imageRendering: '-webkit-optimize-contrast',
+                filter: 'drop-shadow(0px 0px 0.25px rgba(255, 255, 255, 0.85))'
+              }}
+            />
           </div>
 
-          <nav className="hidden lg:flex items-center gap-4 text-xs font-bold uppercase tracking-wider">
+          <nav className="hidden xl:flex items-center gap-1.5 2xl:gap-3.5 text-[10px] 2xl:text-[11.5px] font-bold uppercase tracking-wider ml-auto mr-4 2xl:mr-8">
             {[
               { label: 'Home', action: () => window.scrollTo({ top: 0, behavior: 'smooth' }) },
               { label: 'About Us', section: 'about' },
@@ -88,7 +59,7 @@ export default function Navbar({ setEnquiryOpen, scrollToSection }) {
               <button
                 key={idx}
                 onClick={link.action ? link.action : () => scrollToSection(link.section)}
-                className="relative px-3.5 py-2 text-slate-300 hover:text-white hover:bg-white/[0.03] active:bg-white/[0.06] border border-transparent hover:border-[#E8621A]/20 rounded-xl transition-all duration-300 cursor-pointer font-extrabold text-[11px] tracking-widest group"
+                className="relative px-2.5 py-1.5 2xl:px-3.5 2xl:py-2 text-slate-300 hover:text-white hover:bg-white/[0.03] active:bg-white/[0.06] border border-transparent hover:border-[#E8621A]/20 rounded-xl transition-all duration-300 cursor-pointer font-extrabold text-[10px] 2xl:text-[11.5px] tracking-widest whitespace-nowrap group"
               >
                 {link.label}
                 {/* Active/Hover dot indicator */}
@@ -110,7 +81,7 @@ export default function Navbar({ setEnquiryOpen, scrollToSection }) {
             {/* Hamburger Toggle */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2.5 text-slate-350 hover:text-[#E8621A] transition-colors focus:outline-none bg-slate-900/60 border border-slate-800 rounded-xl hover:border-[#E8621A]/30 cursor-pointer"
+              className="xl:hidden p-2.5 text-slate-350 hover:text-[#E8621A] transition-colors focus:outline-none bg-slate-900/60 border border-slate-800 rounded-xl hover:border-[#E8621A]/30 cursor-pointer"
               aria-label="Toggle Menu"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -121,7 +92,7 @@ export default function Navbar({ setEnquiryOpen, scrollToSection }) {
 
       {/* Mobile Navigation Drawer */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-50 lg:hidden">
+        <div className="fixed inset-0 z-50 xl:hidden">
           {/* Dark backdrop blur */}
           <div
             className="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-300"
@@ -131,11 +102,18 @@ export default function Navbar({ setEnquiryOpen, scrollToSection }) {
             <div className="space-y-6">
               {/* Drawer Header with Logo and Close button */}
               <div className="flex items-center justify-between pb-6 border-b border-slate-900/60">
-                <img
-                  src="images/logo.png"
-                  alt="Bangarkonda Projects Logo"
-                  className="h-14 w-auto object-contain"
-                />
+                <div className="flex items-center gap-1.5">
+                  <img
+                    src="images/logo.png"
+                    alt="Bangarkonda Projects Logo"
+                    className="h-14 w-auto object-contain"
+                  />
+                  <img
+                    src="images/logo-text.png"
+                    alt="Bangarkonda Projects Logo Text"
+                    className="h-10 w-auto object-contain"
+                  />
+                </div>
                 <button
                   onClick={() => setMobileMenuOpen(false)}
                   className="p-2.5 text-slate-450 hover:text-[#E8621A] transition-colors focus:outline-none bg-slate-900/60 border border-slate-800 rounded-xl hover:border-[#E8621A]/30 cursor-pointer"

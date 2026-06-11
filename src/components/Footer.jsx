@@ -1,22 +1,6 @@
 import React from 'react';
 import { MapPin, Phone, Mail } from 'lucide-react';
 
-// Custom chevron-style A component to match the brand typography
-const ChevronA = ({ className }) => (
-  <svg
-    viewBox="0 0 100 100"
-    className={className}
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="16"
-    strokeLinecap="square"
-    strokeLinejoin="miter"
-    style={{ display: 'inline-block', verticalAlign: 'middle' }}
-  >
-    <path d="M12 95 L50 12 L88 95" />
-    <path d="M30 60 L50 45 L70 60" />
-  </svg>
-);
 
 export default function Footer({ scrollToSection }) {
   return (
@@ -32,23 +16,21 @@ export default function Footer({ scrollToSection }) {
 
           {/* Company Info */}
           <div className="lg:col-span-4 space-y-6">
-            <div className="flex items-center gap-4 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+            <div className="flex items-center gap-2 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
               <img
                 src="images/logo.png"
                 alt="Bangarkonda Logo"
                 className="h-20 w-auto object-contain filter drop-shadow-[0_0_8px_rgba(232,98,26,0.25)] transition-transform duration-300 hover:scale-105"
               />
-              <div className="flex flex-col justify-center">
-                <span className="text-xl sm:text-2xl lg:text-3xl font-black tracking-widest text-[#E8621A] uppercase leading-none font-sans flex items-center">
-                  B<ChevronA className="h-[0.72em] w-auto mx-[0.02em] self-center" />NG<ChevronA className="h-[0.72em] w-auto mx-[0.02em] self-center" />RKOND<ChevronA className="h-[0.72em] w-auto mx-[0.02em] self-center" />
-                </span>
-                <span className="text-[11px] sm:text-[12px] lg:text-[13px] tracking-[0.25em] text-[#d4af37] font-black uppercase mt-1.5 leading-none font-sans">
-                  PROJECTS
-                </span>
-                <span className="text-[7px] sm:text-[8px] lg:text-[8.5px] tracking-[0.1em] text-slate-400 font-bold uppercase mt-1 leading-none font-sans">
-                  CONSTRUCTION • DEVELOPMENT • TRADING
-                </span>
-              </div>
+              <img
+                src="images/logo-text.png"
+                alt="Bangarkonda Projects Logo Text"
+                className="h-14 w-auto object-contain"
+                style={{
+                  imageRendering: '-webkit-optimize-contrast',
+                  filter: 'drop-shadow(0px 0px 0.25px rgba(255, 255, 255, 0.85))'
+                }}
+              />
             </div>
             <p className="text-slate-350 font-semibold leading-relaxed text-[11px] max-w-sm">
               A premier diversified infrastructure and lifestyle conglomerate. We integrate real estate development, utility solar grids, five-star hospitality, adventure amusement zones, and managed farmland estates into sustainable ecosystems.

@@ -20,6 +20,9 @@ import {
 } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import ProjectCard from '../components/ProjectCard';
+import { projectsData } from '../data/projectsData';
+import { useLocation } from 'react-router-dom';
 
 // Custom chevron-style A component to match the brand typography
 const ChevronA = ({ className }) => (
@@ -55,6 +58,19 @@ export default function Home() {
   const [projectFilter, setProjectFilter] = useState('all');
   const [activeEcosystemNode, setActiveEcosystemNode] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.replace('#', '');
+      const element = document.getElementById(id);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    }
+  }, [location]);
 
   // Hero background slider data
   const heroSlides = [
@@ -106,108 +122,8 @@ export default function Home() {
   ];
 
 
-  // Featured Projects
-  const projects = [
-    {
-      id: 'p1',
-      title: 'BANGARKONDA TOWNSHIP',
-      category: 'land-development',
-      tag: 'TOWNSHIP',
-      desc: 'Premium Integrated Township',
-      location: 'Bangalore',
-      image: 'images/project-gated-community.png'
-    },
-    {
-      id: 'p2',
-      title: 'BANGARKONDA SOLAR PARK',
-      category: 'solar',
-      tag: 'SOLAR PROJECT',
-      desc: '200 MW Solar Power Project',
-      location: 'Karnataka',
-      image: 'images/project-solar-bluesky.jpg'
-    },
-    {
-      id: 'p3',
-      title: 'BANGARKONDA GRAND RESORT',
-      category: 'hospitality',
-      tag: 'HOSPITALITY',
-      desc: '5 Star Luxury Resort & Convention',
-      location: 'Bangalore',
-      image: 'images/project-resort-aerial.jpg'
-    },
-    {
-      id: 'p4',
-      title: 'GREEN ACRES FARMLANDS',
-      category: 'farmland',
-      tag: 'FARMLAND',
-      desc: 'Organic Farmland Community',
-      location: 'Karnataka',
-      image: 'images/project-farmland-mango2.png'
-    },
-    {
-      id: 'p5',
-      title: 'BANGARKONDA GATED PLOTS',
-      category: 'land-development',
-      tag: 'PLOT DEVELOPMENT',
-      desc: 'Actual Gated Site Progress Layout',
-      location: 'Bangalore',
-      image: 'images/project-land-actual.png'
-    },
-    {
-      id: 'p6',
-      title: 'BANGARKONDA CONVENTION CENTRE',
-      category: 'hospitality',
-      tag: 'CONVENTION CENTRE',
-      desc: 'Premium Business Convention Hallway',
-      location: 'Bangalore',
-      image: 'images/project-hotel-hallway.png'
-    },
-    {
-      id: 'p7',
-      title: 'BANGARKONDA AQUA LAND',
-      category: 'amusement-parks',
-      tag: 'WATER PARK',
-      desc: 'Multi-Lane High Speed Water Slides',
-      location: 'Bangalore',
-      image: 'images/project-waterpark-slide2.jpg'
-    },
-    {
-      id: 'p8',
-      title: 'BANGARKONDA THRILL RIDE',
-      category: 'amusement-parks',
-      tag: 'AMUSEMENT PARK',
-      desc: 'Extreme Spiral Water Slide Adventure',
-      location: 'Bangalore',
-      image: 'images/project-waterpark-slide3.jpg'
-    },
-    {
-      id: 'p10',
-      title: 'BANGARKONDA MANGO GROVES',
-      category: 'farmland',
-      tag: 'MANGO ORCHARD',
-      desc: 'Mature Organic Mango Plantation & Shaded Grove',
-      location: 'Karnataka',
-      image: 'images/project-farmland-mango3.png'
-    },
-    {
-      id: 'p11',
-      title: 'GOLDEN ACRES ESTATE',
-      category: 'farmland',
-      tag: 'FARMLAND ESTATE',
-      desc: 'Lush Mango Plantation plots with Mountain View',
-      location: 'Karnataka',
-      image: 'images/project-farmland-mango4.png'
-    },
-    {
-      id: 'p12',
-      title: 'TOWNSHIP MASTER MAP',
-      category: 'land-development',
-      tag: 'MASTER PLAN',
-      desc: 'Gated Community Master Plan Layout Map',
-      location: 'Bangalore',
-      image: 'images/project-gated-map.jpg'
-    }
-  ];
+  // Featured Projects (unified 12 projects data source)
+  const projects = projectsData;
 
   // All images array to ensure every single image in the data source is displayed
   const galleryImages = [
@@ -739,40 +655,19 @@ export default function Home() {
           {/* Projects Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {filteredProjects.map((p) => (
-              <div
-                key={p.id}
-                className="group bg-slate-950 border border-slate-900 rounded-2xl overflow-hidden shadow-lg transition-all duration-300 hover:border-[#E8621A]/20"
-              >
-                <div className="aspect-[4/3] w-full overflow-hidden relative">
-                  <img
-                    src={p.image}
-                    alt={p.title}
-                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute top-3 left-3 bg-[#E8621A] text-white text-[8px] font-black uppercase tracking-widest px-2 py-1 rounded">
-                    {p.tag}
-                  </div>
-                </div>
-                <div className="p-5 space-y-2">
-                  <h3 className="text-xs font-black text-white group-hover:text-[#E8621A] transition-colors uppercase tracking-wider">
-                    {p.title}
-                  </h3>
-                  <p className="text-[11px] text-slate-300 font-semibold">{p.desc}</p>
-                  <div className="flex items-center gap-1 text-[9px] text-[#d4af37] font-bold uppercase tracking-widest pt-2">
-                    <MapPin className="w-3.5 h-3.5 text-[#E8621A]" />
-                    <span>{p.location}</span>
-                  </div>
-                </div>
-              </div>
+              <ProjectCard key={p.id} project={p} />
             ))}
           </div>
 
           <div className="text-center mt-12">
             <button
-              onClick={() => setEnquiryOpen(true)}
-              className="btn-outline px-8 py-3.5 text-xs font-black uppercase tracking-widest inline-flex items-center gap-2 group"
+              onClick={() => {
+                setProjectFilter('all');
+                document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="btn-outline px-8 py-3.5 text-xs font-black uppercase tracking-widest inline-flex items-center gap-2 group cursor-pointer"
             >
-              <span>View All Projects</span>
+              <span>View All 12 Projects</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </button>
           </div>

@@ -16,14 +16,14 @@ export default function Footer({ scrollToSection }) {
 
           {/* Company Info */}
           <div className="lg:col-span-4 space-y-6">
-            <div className="flex items-center gap-2 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+            <div className="flex items-center gap-2 cursor-pointer" onClick={() => scrollToSection ? scrollToSection('home') : window.location.href = '/'}>
               <img
-                src="images/logo.png"
+                src="/images/logo.png"
                 alt="Bangarkonda Logo"
                 className="h-20 w-auto object-contain filter drop-shadow-[0_0_8px_rgba(232,98,26,0.25)] transition-transform duration-300 hover:scale-105"
               />
               <img
-                src="images/logo-text.png"
+                src="/images/logo-text.png"
                 alt="Bangarkonda Projects Logo Text"
                 className="h-14 w-auto object-contain"
                 style={{

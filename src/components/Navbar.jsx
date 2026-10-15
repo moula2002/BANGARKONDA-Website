@@ -26,15 +26,15 @@ export default function Navbar({ setEnquiryOpen, scrollToSection }) {
         : 'bg-brand-navy/80 border-b border-[#E8621A]/10 shadow-[0_4px_30px_rgba(232,98,26,0.06)] h-28'
         } backdrop-blur-md`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
-          <div className="flex items-center gap-1.5 cursor-pointer select-none" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+          <div className="flex items-center gap-1.5 cursor-pointer select-none" onClick={() => scrollToSection ? scrollToSection('home') : window.location.href = '/'}>
             <img
-              src="images/logo.png"
+              src="/images/logo.png"
               alt="Bangarkonda Logo Icon"
               className={`w-auto object-contain transition-all duration-500 hover:scale-105 ${scrolled ? 'h-10 sm:h-16' : 'h-14 sm:h-22'
                 }`}
             />
             <img
-              src="images/logo-text.png"
+              src="/images/logo-text.png"
               alt="Bangarkonda Projects Logo Text"
               className={`w-auto object-contain transition-all duration-500 ${scrolled ? 'h-7 sm:h-11 lg:h-13' : 'h-10 sm:h-16 lg:h-20'
                 }`}
@@ -102,14 +102,14 @@ export default function Navbar({ setEnquiryOpen, scrollToSection }) {
             <div className="space-y-6">
               {/* Drawer Header with Logo and Close button */}
               <div className="flex items-center justify-between pb-6 border-b border-slate-900/60">
-                <div className="flex items-center gap-1.5">
+                <div className="flex items-center gap-1.5 cursor-pointer" onClick={() => { scrollToSection ? scrollToSection('home') : window.location.href = '/'; setMobileMenuOpen(false); }}>
                   <img
-                    src="images/logo.png"
+                    src="/images/logo.png"
                     alt="Bangarkonda Projects Logo"
                     className="h-14 w-auto object-contain"
                   />
                   <img
-                    src="images/logo-text.png"
+                    src="/images/logo-text.png"
                     alt="Bangarkonda Projects Logo Text"
                     className="h-10 w-auto object-contain"
                   />
